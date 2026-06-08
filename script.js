@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (contactBtn && contactDetails) {
         contactBtn.addEventListener('click', () => {
-            // On vérifie si la div possède la classe hidden
+            // vérification de la div (hidden)
             if (contactDetails.classList.contains('hidden')) {
                 contactDetails.classList.remove('hidden');
                 contactBtn.textContent = "Masquer mes coordonnées";
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Effet d'écriture automatique (Typewriter) dans le Header
     const typeText = document.getElementById('typewriter');
     if (typeText) {
-        const phrases = ["Bienvenue sur mon portfolio", "Développeur Web Junior", "Passionné par la Tech"];
+        const phrases = ["Bienvenue sur mon portfolio ",];
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
