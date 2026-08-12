@@ -1,94 +1,634 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | Jean Junior DIRAMBA MAMBOUNDOU</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Jean Junior Diramba Mamboundou | Portfolio MVP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        cardDark: '#111827',
+                        cardLight: '#ffffff',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
+<body class="bg-darkBg text-slate-100 dark:bg-darkBg dark:text-slate-100 bg-slate-50 text-slate-900 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950 transition-colors duration-300">
 
-    <header>
-        <div class="header-content">
-            <p class="tagline"><span id="typewriter"></span><span class="cursor">|</span></p>
-            <h1>Jean Junior DIRAMBA MAMBOUNDOU</h1>
-            <p class="subtitle">Développeur Front-End</p>
-            <img src="image1.png" alt="Portrait de Jean Junior" class="profile-pic">
+    <!-- En-tête / Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-darkBg/80 dark:bg-darkBg/80 bg-white/80 border-b border-slate-800 dark:border-slate-800 border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <span class="font-bold text-lg tracking-wider text-cyan-400">JJ-Dev625</span>
+            <div class="flex items-center space-x-6">
+                <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-300 dark:text-slate-300 text-slate-600">
+                    <a href="#projets" class="hover:text-cyan-400 transition">MVP Projets</a>
+                    <a href="#apropos" class="hover:text-cyan-400 transition">À propos & CV</a>
+                    <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+                </nav>
+                <!-- Light / Dark Mode Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-lg bg-slate-800 dark:bg-slate-800 bg-slate-200 text-yellow-400 hover:opacity-80 transition" aria-label="Changer de thème">
+                    <i id="theme-icon" class="fa-solid fa-sun"></i>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section id="about">
-            <h2>À propos</h2>
-            <p>Passionné par les solutions numériques, je suis actuellement en formation intensive à l'École 241 pour maîtriser les technologies du Web. Basé à Bikélé, je combine apprentissage technique et services de proximité pour accompagner la transformation digitale au Gabon.</p>
-        </section>
+    <!-- Section Hero & Photo de Profil -->
+<section class="max-w-6xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center justify-between gap-12">
+    <div class="flex-1">
+        <span class="inline-block py-1 px-3 rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800 text-xs font-semibold mb-6">
+            Développeur Web Junior @ École {241}
+        </span>
+        <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+            Jean Junior <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Diramba Mamboundou</span>
+        </h1>
+        <p class="text-lg md:text-xl text-slate-400 max-w-2xl mb-8 leading-relaxed">
+            Conception et développement de solutions web orientées MVP. Focus sur l'ergonomie (UI/UX), l'efficacité et l'impact réel pour les PME et la communauté.
+        </p>
+        <div class="flex flex-wrap gap-4">
+            <a href="#projets" class="bg-cyan-500 text-slate-950 font-semibold px-6 py-3 rounded-lg hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20">
+                Explorer mes MVP
+            </a>
+            <a href="#apropos" class="border border-slate-700 font-semibold px-6 py-3 rounded-lg hover:bg-slate-900 transition">
+                Mon CV & Profil
+            </a>
+        </div>
+    </div>
 
-        <section id="skills">
-            <h2>Stacks Techniques</h2> 
-            <div class="skills-grid">
-                <div class="skill-item">HTML5 / CSS3</div>
-                <div class="skill-item">JavaScript</div>
-                <div class="skill-item">Figma</div>
-                <div class="skill-item">GitHub</div>
-                <div class="skill-item">Support Technique</div>
+<!-- Rubrique Photo de Profil en 3D sans bordure (avec contraste adaptatif) -->
+<div class="flex-shrink-0 flex flex-col items-center">
+    <div class="relative group">
+        <!-- Effet de lueur 3D en arrière-plan -->
+        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition duration-500"></div>
+        
+        <!-- Image grand format avec effet d'épaisseur et relief 3D -->
+        <img src="images/JJ.jpg" alt="Jean Junior Diramba Mamboundou" class="relative w-64 h-64 md:w-72 md:h-72 object-cover rounded-2xl shadow-[0_20px_50px_rgba(8,145,178,0.3)] transform transition duration-500 hover:scale-[1.02]">
+    </div>
+    <!-- Texte avec contraste adaptatif : sombre par défaut (pour light mode), clair en dark mode -->
+    <span class="text-xs text-slate-800 dark:text-slate-300 mt-4 font-mono tracking-wider">Libreville, Gabon</span>
+</div>
+</section>
+
+
+    <!-- Section MVP & Projets Réalisés -->
+    <section id="projets" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800 dark:border-slate-800 border-slate-200">
+        <div class="mb-12">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3">MVP & Réalisations</h2>
+            <p class="text-slate-400">Une sélection de mes produits minimum viables, avec galerie photo intégrée par projet.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Card 1 : LinkEdu (Avec lien dans l'en-tête) -->
+<div class="group bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/10 hover:border-cyan-500/50 flex flex-col">
+    <div class="h-48 overflow-hidden bg-slate-800 relative">
+        <img src="images/le1.jpg" alt="Aperçu LinkEdu" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold group-hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    LinkEdu
+                </h3>
+                <div class="flex items-center gap-2">
+                    <!-- Bouton Lien Projet -->
+                    <a href="URL_DE_TON_PROJET" target="_blank" rel="noopener noreferrer" class="h-10 px-3 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 text-xs font-medium flex items-center gap-1.5 hover:bg-cyan-900 transition" title="Voir le projet en ligne">
+                        <span>Visiter</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <!-- Logo Image Container -->
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shrink-0" title="Logo LinkEdu">
+                        <img src="images/le.jpg" alt="Logo LinkEdu" class="w-full h-full object-cover">
+                    </div>
+                </div>
             </div>
-        </section>
-
-        <section id="projects">
-            <h2>Projets en cours</h2>
-            <div class="project-list">
-                <!-- Projet 1 -->
-                <div class="project-card">
-                    <h3>LinkEdu</h3>
-                    <span class="secure-badge">🔒 Code Privé & Sécurisé</span>
-                    <img src="image4.png" class="img-projet" alt="Projet LinkEdu">
-                    <p>Conception d'une plateforme de gestion scolaire (User Stories & UX Design).</p>
-                </div>
-
-                <!-- Projet 2 -->
-                <div class="project-card">
-                    <h3>Quiz Interactif</h3>
-                    <span class="secure-badge">🔒 Code Privé & Sécurisé</span>
-                    <img src="quiz.png" class="img-projet" alt="Projet Quiz">
-                    <p>Développement d'un quiz dynamique déployé sur GitHub Pages.</p>
-                </div>
-
-                <!-- Produit 3 -->
-                <div class="project-card">
-                    <h3>Church Online </h3>
-                    <span class="secure-badge">🔒 Code Privé & Sécurisé</span>
-                    <img src="image2.png" class="img-projet" alt="Description produit 3">
-                    <p>Plateforme en ligne d'une église .</p>
-                </div>
-
-                <!-- Produit 4 -->
-                <div class="project-card">
-                    <h3>Union Events</h3>
-                    <span class="secure-badge">🔒 Code Privé & Sécurisé</span>
-                    <img src="image3.png" class="img-projet" alt="Description produit 4">
-                    <p>Pateforme évènementielle</p>
+            <p class="text-slate-400 text-sm mb-4">
+                École 241 : Application de gestion scolaire complète intégrant des user stories, UX design et flux administratifs.
+            </p>
+            <!-- Galerie Photo -->
+            <div class="mb-4">
+                <span class="text-xs font-semibold text-slate-400 block mb-2">Galerie du projet :</span>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/linkedu-img1.jpg" alt="Img 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/linkedu-img2.jpg" alt="Img 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/linkedu-img3.jpg" alt="Img 3" class="w-full h-full object-cover">
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800 dark:border-slate-800 border-slate-100 text-xs text-slate-300 dark:text-slate-300 text-slate-600">
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">UI/UX</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Web App</span>
+        </div>
+    </div>
+</div>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Souhaitez-vous collaborer avec moi ?</p>
-            <button id="contact-btn">Afficher mes coordonnées</button>
+            <!-- Card 2 : Union Events -->
+<div class="group bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/10 hover:border-cyan-500/50 flex flex-col">
+    <div class="h-48 overflow-hidden bg-slate-800 relative">
+        <img src="images/ue1.jpg" alt="Aperçu Union Events" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold group-hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    Union Events
+                </h3>
+                <div class="flex items-center gap-2">
+                    <!-- Bouton Lien Projet -->
+                    <a href="URL_DE_TON_PROJET" target="_blank" rel="noopener noreferrer" class="h-10 px-3 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 text-xs font-medium flex items-center gap-1.5 hover:bg-cyan-900 transition" title="Voir le projet en ligne">
+                        <span>Visiter</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <!-- Logo Image Container -->
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shrink-0" title="Logo Union Events">
+                        <img src="images/ue.jpg" alt="Logo Union Events" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-4">
+                Plateforme collaborative de gestion d'événements et de logistique adaptée pour un usage local.
+            </p>
+            <!-- Galerie Photo -->
+            <div class="mb-4">
+                <span class="text-xs font-semibold text-slate-400 block mb-2">Galerie du projet :</span>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/union-events-img1.jpg" alt="Img 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/union-events-img2.jpg" alt="Img 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/union-events-img3.jpg" alt="Img 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800 dark:border-slate-800 border-slate-100 text-xs text-slate-300 dark:text-slate-300 text-slate-600">
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Collaboration</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Logistique</span>
+        </div>
+    </div>
+</div>
+
+
+            <!-- Card 3 : ATG -->
+<div class="group bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/10 hover:border-cyan-500/50 flex flex-col">
+    <div class="h-48 overflow-hidden bg-slate-800 relative">
+        <img src="images/atg1.jpg" alt="Aperçu ATG" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold group-hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    ATG
+                </h3>
+                <div class="flex items-center gap-2">
+                    <!-- Bouton Lien Projet -->
+                    <a href="URL_DE_TON_PROJET" target="_blank" rel="noopener noreferrer" class="h-10 px-3 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 text-xs font-medium flex items-center gap-1.5 hover:bg-cyan-900 transition" title="Voir le projet en ligne">
+                        <span>Visiter</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <!-- Logo Image Container -->
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shrink-0" title="Logo ATG">
+                        <img src="images/atg.jpg" alt="Logo ATG" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-4">
+                Plateforme qui permet de réserver son billet en ligne chez les agences terrestres et de payer via mobile money.
+            </p>
+            <!-- Galerie Photo -->
+            <div class="mb-4">
+                <span class="text-xs font-semibold text-slate-400 block mb-2">Galerie du projet :</span>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/atg-img1.jpg" alt="Img 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/atg-img2.jpg" alt="Img 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/atg-img3.jpg" alt="Img 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800 dark:border-slate-800 border-slate-100 text-xs text-slate-300 dark:text-slate-300 text-slate-600">
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Réservation</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Mobile Money</span>
+        </div>
+    </div>
+</div>
+
+        <!-- Card 4 : Mon refuge -->
+<div class="group bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/10 hover:border-cyan-500/50 flex flex-col">
+    <div class="h-48 overflow-hidden bg-slate-800 relative">
+        <img src="images/mr1.jpg" alt="Aperçu Mon refuge" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold group-hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    Mon refuge
+                </h3>
+                <div class="flex items-center gap-2">
+                    <!-- Bouton Lien Projet -->
+                    <a href="URL_DE_TON_PROJET" target="_blank" rel="noopener noreferrer" class="h-10 px-3 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 text-xs font-medium flex items-center gap-1.5 hover:bg-cyan-900 transition" title="Voir le projet en ligne">
+                        <span>Visiter</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <!-- Logo Image Container -->
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shrink-0" title="Logo Mon refuge">
+                        <img src="images/mr.jpg" alt="Logo Mon refuge" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-4">
+                Mise en relation des personnes qui traversent des mauvaises passes émotionnelles avec des psychologues et thérapeutes.
+            </p>
+            <!-- Galerie Photo -->
+            <div class="mb-4">
+                <span class="text-xs font-semibold text-slate-400 block mb-2">Galerie du projet :</span>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/mon-refuge-img1.jpg" alt="Img 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/mon-refuge-img2.jpg" alt="Img 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/mon-refuge-img3.jpg" alt="Img 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800 dark:border-slate-800 border-slate-100 text-xs text-slate-300 dark:text-slate-300 text-slate-600">
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Soutien Émotionnel</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Thérapie</span>
+        </div>
+    </div>
+</div>
+
+
+            <!-- Card 5 : Bidzi -->
+<div class="group bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/10 hover:border-cyan-500/50 flex flex-col">
+    <div class="h-48 overflow-hidden bg-slate-800 relative">
+        <img src="images/bz1.jpg" alt="Aperçu Bidzi" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold group-hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    Bidzi
+                </h3>
+                <div class="flex items-center gap-2">
+                    <!-- Bouton Lien Projet -->
+                    <a href="URL_DE_TON_PROJET" target="_blank" rel="noopener noreferrer" class="h-10 px-3 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 text-xs font-medium flex items-center gap-1.5 hover:bg-cyan-900 transition" title="Voir le projet en ligne">
+                        <span>Visiter</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <!-- Logo Image Container -->
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shrink-0" title="Logo Bidzi">
+                        <img src="images/bz.jpg" alt="Logo Bidzi" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-4">
+                Application web interactive axée sur la mise en relation et l'optimisation des services locaux du quotidien.
+            </p>
+            <!-- Galerie Photo -->
+            <div class="mb-4">
+                <span class="text-xs font-semibold text-slate-400 block mb-2">Galerie du projet :</span>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/bidzi-img1.jpg" alt="Img 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/bidzi-img2.jpg" alt="Img 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/bidzi-img3.jpg" alt="Img 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800 dark:border-slate-800 border-slate-100 text-xs text-slate-300 dark:text-slate-300 text-slate-600">
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">JavaScript</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Services</span>
+        </div>
+    </div>
+</div>
+
+             <!-- Card 6 : Les délices africains -->
+<div class="group bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/10 hover:border-cyan-500/50 flex flex-col">
+    <div class="h-48 overflow-hidden bg-slate-800 relative">
+        <img src="images/da1.jpg" alt="Aperçu Les délices africains" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold group-hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    Les délices africains
+                </h3>
+                <div class="flex items-center gap-2">
+                    <!-- Bouton Lien Projet -->
+                    <a href="URL_DE_TON_PROJET" target="_blank" rel="noopener noreferrer" class="h-10 px-3 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 text-xs font-medium flex items-center gap-1.5 hover:bg-cyan-900 transition" title="Voir le projet en ligne">
+                        <span>Visiter</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <!-- Logo Image Container -->
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shrink-0" title="Logo Les délices africains">
+                        <img src="images/da.jpg" alt="Logo Les délices africains" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-4">
+                Vitrine digitale et système de commande en ligne valorisant la gastronomie et les saveurs du terroir.
+            </p>
+            <!-- Galerie Photo -->
+            <div class="mb-4">
+                <span class="text-xs font-semibold text-slate-400 block mb-2">Galerie du projet :</span>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/delices-africains-img1.jpg" alt="Img 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/delices-africains-img2.jpg" alt="Img 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/delices-africains-img3.jpg" alt="Img 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800 dark:border-slate-800 border-slate-100 text-xs text-slate-300 dark:text-slate-300 text-slate-600">
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">E-commerce</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">UI/UX</span>
+        </div>
+    </div>
+</div>
+
+
+            <!-- Card 7 : Sport et nutrition by BK -->
+<div class="group bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/10 hover:border-cyan-500/50 flex flex-col">
+    <div class="h-48 overflow-hidden bg-slate-800 relative">
+        <img src="images/sn1.jpg" alt="Aperçu Sport et nutrition by BK" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold group-hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    Sport et nutrition by BK
+                </h3>
+                <div class="flex items-center gap-2">
+                    <!-- Bouton Lien Projet -->
+                    <a href="URL_DE_TON_PROJET" target="_blank" rel="noopener noreferrer" class="h-10 px-3 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 text-xs font-medium flex items-center gap-1.5 hover:bg-cyan-900 transition" title="Voir le projet en ligne">
+                        <span>Visiter</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <!-- Logo Image Container -->
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shrink-0" title="Logo Sport et nutrition by BK">
+                        <img src="images/sn.jpg" alt="Logo Sport et nutrition by BK" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-4">
+                Plateforme dédiée au suivi de programmes d'entraînement physique et de conseils en nutrition personnalisés.
+            </p>
+            <!-- Galerie Photo -->
+            <div class="mb-4">
+                <span class="text-xs font-semibold text-slate-400 block mb-2">Galerie du projet :</span>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/sport-nutrition-img1.jpg" alt="Img 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/sport-nutrition-img2.jpg" alt="Img 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/sport-nutrition-img3.jpg" alt="Img 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800 dark:border-slate-800 border-slate-100 text-xs text-slate-300 dark:text-slate-300 text-slate-600">
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Interactivité</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Bien-être</span>
+        </div>
+    </div>
+</div>
+
+             <!-- Card 8 : PME Connect -->
+<div class="group bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/10 hover:border-cyan-500/50 flex flex-col">
+    <div class="h-48 overflow-hidden bg-slate-800 relative">
+        <img src="images/pmec1.jpg" alt="Aperçu PME Connect" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold group-hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    PME Connect
+                </h3>
+                <div class="flex items-center gap-2">
+                    <!-- Bouton Lien Projet -->
+                    <a href="URL_DE_TON_PROJET" target="_blank" rel="noopener noreferrer" class="h-10 px-3 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 text-xs font-medium flex items-center gap-1.5 hover:bg-cyan-900 transition" title="Voir le projet en ligne">
+                        <span>Visiter</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <!-- Logo Image Container -->
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shrink-0" title="Logo PME Connect">
+                        <img src="images/pmec2.jpg" alt="Logo PME Connect" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-4">
+                Solution digitale connectant les petites et moyennes entreprises gabonaises avec des outils adaptés (paiements mobiles, offline).
+            </p>
+            <!-- Galerie Photo -->
+            <div class="mb-4">
+                <span class="text-xs font-semibold text-slate-400 block mb-2">Galerie du projet :</span>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/pme-connect-img1.jpg" alt="Img 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/pme-connect-img2.jpg" alt="Img 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/pme-connect-img3.jpg" alt="Img 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800 dark:border-slate-800 border-slate-100 text-xs text-slate-300 dark:text-slate-300 text-slate-600">
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">PME Gabonaise</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Digitalisation</span>
+        </div>
+    </div>
+</div>
+
+        <!-- Card 9 : Nyoni -->
+<div class="group bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-cyan-500/10 hover:border-cyan-500/50 flex flex-col">
+    <div class="h-48 overflow-hidden bg-slate-800 relative">
+        <img src="images/ny1.jpg" alt="Aperçu Nyoni" class="w-full h-full object-cover">
+    </div>
+    <div class="p-6 flex-1 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="text-xl font-bold group-hover:text-cyan-400 transition-colors flex items-center gap-2">
+                    Nyoni
+                </h3>
+                <div class="flex items-center gap-2">
+                    <!-- Bouton Lien Projet -->
+                    <a href="URL_DE_TON_PROJET" target="_blank" rel="noopener noreferrer" class="h-10 px-3 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-400 text-xs font-medium flex items-center gap-1.5 hover:bg-cyan-900 transition" title="Voir le projet en ligne">
+                        <span>Visiter</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                    <!-- Logo Image Container -->
+                    <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden flex items-center justify-center shrink-0" title="Logo Nyoni">
+                        <img src="images/ny.jpg" alt="Logo Nyoni" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-4">
+                Vitrine technologique transparente pour les cultivateurs locaux, garantissant aux consommateurs une traçabilité sanitaire stricte.
+            </p>
+            <!-- Galerie Photo -->
+            <div class="mb-4">
+                <span class="text-xs font-semibold text-slate-400 block mb-2">Galerie du projet :</span>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/nyoni-img1.jpg" alt="Img 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/nyoni-img2.jpg" alt="Img 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="h-16 rounded border border-slate-800 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img src="images/nyoni-img3.jpg" alt="Img 3" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-slate-800 dark:border-slate-800 border-slate-100 text-xs text-slate-300 dark:text-slate-300 text-slate-600">
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Agrotech</span>
+            <span class="px-2.5 py-1 rounded bg-slate-800 dark:bg-slate-800 bg-slate-100">Traçabilité</span>
+        </div>
+    </div>
+</div>
+
+    </section>
+
+    <!-- Section À propos & CV (Visualisation & Téléchargement) -->
+    <section id="apropos" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800 dark:border-slate-800 border-slate-200">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Parcours & Compétences</h2>
+                <p class="text-slate-400 leading-relaxed mb-6">
+                    Fort d'une solide expérience en gestion opérationnelle (cyber café PK18 Lamanguier), je combine sens du terrain et compétences techniques en développement front-end et design UI/UX pour créer des solutions adaptées aux réalités locales.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-full text-sm text-cyan-400">HTML5 / CSS3</span>
+                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-full text-sm text-cyan-400">JavaScript (ES6+)</span>
+                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-full text-sm text-cyan-400">Tailwind CSS</span>
+                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-full text-sm text-cyan-400">Git / GitHub</span>
+                    <span class="px-3 py-1 bg-slate-900 border border-slate-800 rounded-full text-sm text-cyan-400">Figma</span>
+                </div>
+            </div>
             
-            <!-- C'est cette div seule qui va apparaître / disparaître -->
-            <div id="contact-details" class="hidden">
-                <p>📍 Bikélé / PK18, Gabon</p>
-                <p>📧 Email : cloudu86@gmail.com</p>
-                <p>📞 Tél : +241 74 45 05 75</p>
+            <!-- Rubrique CV -->
+            <!-- Rubrique CV -->
+<div class="bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 p-8 rounded-2xl flex flex-col justify-between shadow-lg">
+    <div>
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-cyan-400">Curriculum Vitae</h3>
+            <span class="text-xs bg-cyan-950 text-cyan-400 px-2.5 py-1 rounded border border-cyan-800">CV Pro</span>
+        </div>
+        <p class="text-slate-300 dark:text-slate-300 text-slate-600 text-sm leading-relaxed mb-6">
+            Consultez mon parcours détaillé, mes formations à l'École 241 et mes expériences professionnelles. Visualisez-le en ligne ou téléchargez-le ci-dessous.
+        </p>
+        
+        <div class="bg-slate-950 border border-slate-800 rounded-lg p-4 mb-6 flex items-center space-x-4">
+            <div class="w-12 h-16 bg-slate-900 border border-slate-700 rounded flex items-center justify-center text-slate-500 text-xs font-bold">PDF</div>
+            <div class="flex-1">
+                <h4 class="text-sm font-semibold text-slate-200">cv.pdf</h4>
+                <span class="text-xs text-slate-500">Mise à jour 2026 • Format standard</span>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 - JJ-Dev625 - Réalisé avec passion</p>
+    <div class="flex flex-wrap gap-4">
+        <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="flex-1 text-center bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold py-2.5 px-4 rounded-lg transition text-sm border border-slate-700 flex items-center justify-center space-x-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+            <span>Voir en ligne</span>
+        </a>
+       
+        <a href="cv.pdf" download class="flex-1 text-center bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold py-2.5 px-4 rounded-lg transition text-sm shadow-md shadow-cyan-500/20 flex items-center justify-center space-x-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            <span>Télécharger</span>
+        </a>
+    </div>
+</div>
+</div>
+    </section>
+     <!-- Section Contact / Footer -->
+    <footer id="contact" class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-800 dark:border-slate-800 border-slate-200 text-center">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4">Discutons de votre projet</h2>
+        <p class="text-slate-400 mb-6 max-w-md mx-auto">Vous souhaitez collaborer ou échanger sur une opportunité ? N'hésitez pas à me contacter.</p>
+        
+        <!-- Coordonnées -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8 text-sm text-slate-300 dark:text-slate-300 text-slate-600 font-medium">
+            <a href="mailto:cloudu86@gmail.com" class="flex items-center space-x-2 bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 px-4 py-2.5 rounded-lg hover:border-cyan-500/50 transition">
+                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                <span>cloudu86@gmail.com</span>
+            </a>
+            <a href="tel:+24174450575" class="flex items-center space-x-2 bg-cardDark dark:bg-cardDark bg-cardLight border border-slate-800 dark:border-slate-800 border-slate-200 px-4 py-2.5 rounded-lg hover:border-cyan-500/50 transition">
+                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.3-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                <span>+241 74 45 05 75</span>
+            </a>
+        </div>
+
+        <a href="mailto:cloudu86@gmail.com" class="inline-block bg-cyan-500 text-slate-950 font-semibold px-8 py-3 rounded-lg hover:bg-cyan-400 transition shadow-lg shadow-cyan-500/20">
+            Envoyer un message
+        </a>
+        <div class="mt-16 text-xs text-slate-500">
+            &copy; 2026 Jean Junior Diramba Mamboundou. Tous droits réservés.
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Light/Dark Mode Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlElement = document.documentElement;
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            } else {
+                htmlElement.classList.remove('light');
+                htmlElement.classList.add('dark');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        });
+    </script>
 </body>
 </html>
